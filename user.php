@@ -9,7 +9,7 @@ class User extends CI_Model {
 
 	public function getUsers($id = FALSE)
 	{
-		if ($id == FALSE) {
+		if ($id === FALSE) {
 			$query = $this->db->get('users');
 			return $query->result();
 		} else {
