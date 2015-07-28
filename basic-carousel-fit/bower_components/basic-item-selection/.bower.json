@@ -1,0 +1,31 @@
+{
+  "name": "basic-item-selection",
+  "description": "Aspect which manages selection semantics for items in a list.",
+  "license": "MIT",
+  "main": "basic-item-selection.html",
+  "dependencies": {
+    "basic-aspect": "basic-web-components/basic-aspect#master",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "basic-framed-content": "basic-web-components/basic-framed-content#master",
+    "web-component-tester": "*"
+  },
+  "keywords": [
+    "basic-web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "/test/"
+  ],
+  "homepage": "https://github.com/basic-web-components/basic-item-selection",
+  "_release": "2920d09322",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2920d09322b5d8a38fd0381a054881581e92c47a"
+  },
+  "_source": "git://github.com/basic-web-components/basic-item-selection.git",
+  "_target": "master",
+  "_originalSource": "basic-web-components/basic-item-selection"
+}

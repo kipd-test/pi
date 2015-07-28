@@ -1,0 +1,31 @@
+{
+  "name": "basic-timer-selection",
+  "description": "An aspect which provides for automatic timed changes in selection, as in an automated slideshow.",
+  "license": "MIT",
+  "main": "basic-timer-selection.html",
+  "dependencies": {
+    "basic-aspect": "basic-web-components/basic-aspect#master",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "basic-framed-content": "basic-web-components/basic-framed-content#master",
+    "web-component-tester": "*"
+  },
+  "keywords": [
+    "basic-web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "/test/"
+  ],
+  "homepage": "https://github.com/basic-web-components/basic-timer-selection",
+  "_release": "20b5af70b1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "20b5af70b18ba34a10102c14975b746be224f891"
+  },
+  "_source": "git://github.com/basic-web-components/basic-timer-selection.git",
+  "_target": "master",
+  "_originalSource": "basic-web-components/basic-timer-selection"
+}

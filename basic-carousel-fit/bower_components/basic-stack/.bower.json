@@ -1,0 +1,33 @@
+{
+  "name": "basic-stack",
+  "description": "Stacks its child elements on top of each other, taking on the maximum height and width of the child elements.",
+  "license": "MIT",
+  "main": "basic-stack.html",
+  "dependencies": {
+    "basic-aspect": "basic-web-components/basic-aspect#master",
+    "basic-children-content": "basic-web-components/basic-children-content#master",
+    "basic-shared": "basic-web-components/basic-shared#master",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "basic-framed-content": "basic-web-components/basic-framed-content#master",
+    "web-component-tester": "*"
+  },
+  "keywords": [
+    "basic-web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "/test/"
+  ],
+  "homepage": "https://github.com/basic-web-components/basic-stack",
+  "_release": "7dd72fe1f6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7dd72fe1f641cd40141dc61c6b24559c7ca78f90"
+  },
+  "_source": "git://github.com/basic-web-components/basic-stack.git",
+  "_target": "master",
+  "_originalSource": "basic-web-components/basic-stack"
+}

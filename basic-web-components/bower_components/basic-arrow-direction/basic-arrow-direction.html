@@ -1,0 +1,164 @@
+<!--
+Aspect used to add prominent left and right arrow buttons to a wrapped child.
+Clicking the left/right button maps to the corresponding left/right direction.
+
+@element basic-arrow-direction
+-->
+
+<link rel="import" href="../basic-aspect/basic-aspect.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="basic-arrow-direction">
+  <style>
+  :host {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+  }
+
+  #arrowNavigationContainer {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex: 1;
+    flex: 1;
+  }
+
+  .navigationButton {
+    background: transparent;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    opacity: 1;
+    outline: none; /* REVIEW: Accessibility should be provided by other aspects. */
+    padding: 0;
+    transition: opacity 1s;
+    z-index: 1;
+  }
+
+  .navigationButton:hover:not(:disabled) {
+    background: rgba( 0, 0, 0, 0.5 );
+    fill: rgba( 0, 0, 0, 0.7 );
+  }
+  .navigationButton:active:not(:disabled) {
+    background: rgba( 0, 0, 0, 0.7 );
+    fill: rgba( 0, 0, 0, 0.9 );
+  }
+
+  :host(:not(.mouseDetected)) .navigationButton {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .navigationButton iron-icon {
+    height: 48px;
+    width: 48px;
+  }
+
+  /* Overlay variant */
+  :host(.overlay) {
+    position: relative;
+  }
+  :host(.overlay) .navigationButton {
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+  }
+  :host(.overlay) #buttonLeft {
+    left: 0;
+  }
+  :host(.overlay) #buttonRight {
+    right: 0;
+  }
+
+  .navigationButton:disabled {
+    color: rgba(255, 255, 255, 0.3);
+    fill: rgba( 0, 0, 0, 0.2 );
+  }
+  </style>
+  <template>
+    <!--
+    Accessibility note: since the navigation offered by the arrow buttons should
+    be redundant (that is, there should be other ways of navigating the list),
+    we mark the button as aria-hidden so that assistive devices ignore them.
+    -->
+    <button id="buttonLeft" class="navigationButton" on-click="goLeft" aria-hidden="true">
+      <iron-icon icon="chevron-left"></iron-icon>
+    </button>
+    <div id="arrowNavigationContainer">
+      <content></content>
+    </div>
+    <button id="buttonRight" class="navigationButton" on-click="goRight" aria-hidden="true">
+      <iron-icon icon="chevron-right"></iron-icon>
+    </button>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+
+  behaviors: [Basic.Aspect],
+
+  contribute: {
+
+    // Default implementations. These will typically be handled by other aspects
+    // in the collective.
+    goLeft: Basic.Collective.defaultMethod,
+    goRight: Basic.Collective.defaultMethod,
+
+    set canSelectNext(canSelectNext) {
+      this.$.buttonRight.disabled = !canSelectNext;
+    },
+    set canSelectPrevious(canSelectPrevious) {
+      this.$.buttonLeft.disabled = !canSelectPrevious;
+    }
+
+  },
+
+  // TODO: Disable buttons when it's not possible to go in that direction.
+  goLeft: function() {
+    this.collective.goLeft();
+  },
+
+  goRight: function() {
+    this.collective.goRight();
+  },
+
+  is: 'basic-arrow-direction',
+
+  ready: function() {
+    window.addEventListener('mousemove', function(event) {
+      // console.log('mousemove');
+      this.classList.add('mouseDetected');
+    }.bind(this));
+  },
+  
+  /**
+   * The index of the item which is currently selected, or -1 if there is no
+   * selection.
+   *
+   * @property selectedIndex
+   * @type Number
+   */
+  get selectedIndex() {
+    return this.collective.selectedIndex;
+  },
+  set selectedIndex(index) {
+    this.collective.selectedIndex = index;
+  },
+
+  /**
+   * The currently selected item, or null if there is no selection.
+   *
+   * @property selectedItem
+   * @type Object
+   */
+  get selectedItem() {
+    return this.collective.selectedItem;
+  },
+  set selectedItem(item) {
+    this.collective.selectedItem = item;
+  }
+
+});
+</script>

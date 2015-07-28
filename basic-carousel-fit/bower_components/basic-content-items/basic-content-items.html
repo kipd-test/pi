@@ -1,0 +1,103 @@
+<!--
+Aspect that lets a component collective DOM content as list items.
+
+@element basic-content-items
+-->
+
+<link rel="import" href="../basic-aspect/basic-aspect.html">
+
+<script>
+window.Basic = window.Basic || {};
+
+window.Basic.ContentItems = {
+
+  contribute: {
+
+    applySelection: function(item, selected) {
+      item.classList.toggle('selected', selected);
+    },
+
+    contentChanged: function() {
+      this.collective.itemsChanged();
+    },
+
+    /**
+     * Returns the positional index for the indicated item.
+     *
+     * @method indexOfItem
+     * @param {Object} item The item whose index is requested.
+     * @returns {Number} The index of the item, or -1 if not found.
+     */
+    indexOfItem: function(item) {
+      return this.collective.items.indexOf(item);
+    },
+
+    // Default implementation does nothing. This will typically be handled by
+    // other aspects in the collective.
+    itemAdded: Basic.Collective.defaultMethod,
+
+    itemsChanged: function() {
+      // Perform per-item initialization.
+      this.collective.items.forEach(function(item) {
+        if (!item._itemInitialized) {
+          // BUG: If an aspect is assimilated after ContentItems, then all the
+          // items are already initialized, and the new aspect won't have an
+          // opportunity to do its own per-item initialization in itemAdded.
+          this.collective.itemAdded(item);
+          item._itemInitialized = true;
+        }
+      }.bind(this));
+
+      var outermost = this.collective.outermostAttached;
+      if (outermost) {
+        var event = new CustomEvent('items-changed', {
+          bubbles: true
+        });
+        outermost.dispatchEvent(event);
+      }
+    },
+
+    /**
+     * The current set of items in the list.
+     *
+     * @property items
+     * @type [Object]
+     */
+    get items() {
+      // TODO: Memoize
+      // TODO: Filter out auxiliary content.
+      // TODO: property notifications so elements can bind to this property
+      return this.collective.content;
+    }
+
+  },
+
+  name: 'ContentItems'
+
+};
+
+
+/**
+ * Fires when the items in the list change.
+ *
+ * @event items-changed
+ */
+
+Polymer({
+
+  aspects: [Basic.ContentItems],
+
+  behaviors: [Basic.Aspect],
+
+  indexOfItem: function(item) {
+    return this.collective.indexOfItem(item);
+  },
+
+  is: 'basic-content-items',
+
+  get items() {
+    return this.collective.items;
+  }
+
+});
+</script>

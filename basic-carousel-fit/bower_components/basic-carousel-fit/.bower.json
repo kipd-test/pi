@@ -1,0 +1,46 @@
+{
+  "name": "basic-carousel-fit",
+  "description": "Lets the user navigate laterally through a sequence of child elements, without requiring that an explicit height and width be applied to the carousel.",
+  "license": "MIT",
+  "main": "basic-carousel-fit.html",
+  "dependencies": {
+    "basic-accessible-list": "basic-web-components/basic-accessible-list#master",
+    "basic-arrow-direction": "basic-web-components/basic-arrow-direction#master",
+    "basic-aspect": "basic-web-components/basic-aspect#master",
+    "basic-children-content": "basic-web-components/basic-children-content#master",
+    "basic-content-items": "basic-web-components/basic-content-items#master",
+    "basic-direction-selection": "basic-web-components/basic-direction-selection#master",
+    "basic-item-selection": "basic-web-components/basic-item-selection#master",
+    "basic-keyboard": "basic-web-components/basic-keyboard#master",
+    "basic-keyboard-direction": "basic-web-components/basic-keyboard-direction#master",
+    "basic-sliding-viewport-fit": "basic-web-components/basic-sliding-viewport-fit#master",
+    "basic-spread-fit": "basic-web-components/basic-spread-fit#master",
+    "basic-swipe-direction": "basic-web-components/basic-swipe-direction#master",
+    "basic-trackpad-direction": "basic-web-components/basic-trackpad-direction#master",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "basic-arrow-direction": "basic-web-components/basic-arrow-direction#master",
+    "basic-framed-content": "basic-web-components/basic-framed-content#master",
+    "web-component-tester": "*"
+  },
+  "keywords": [
+    "basic-web-components",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "/test/"
+  ],
+  "homepage": "https://github.com/basic-web-components/basic-carousel-fit",
+  "_release": "48068ce4f3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "48068ce4f3de3c155b07434654ab6e8c79d72533"
+  },
+  "_source": "git://github.com/basic-web-components/basic-carousel-fit.git",
+  "_target": "master",
+  "_originalSource": "basic-web-components/basic-carousel-fit",
+  "_direct": true
+}
