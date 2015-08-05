@@ -1,1 +1,6 @@
-{"name":"Pi","tagline":"","body":"<?php \r\n\theader('Location:multiplication_app.php'); exit;\r\n?>","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
+{
+	"name":"Pi",
+	"tagline":"",
+	"body":"<?php \r\n\theader('Location:multiplication_app.php'); exit;\r\n?>",
+	"google":"","note":"Don't delete this file! It's used internally to help with page regeneration."
+}
