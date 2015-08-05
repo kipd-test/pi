@@ -1,6 +1,6 @@
-
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
 	<title>Math App</title>
 	<script src="jquery/jquery-1.10.2.min.js"></script>
 <style>
@@ -16,7 +16,7 @@
 		.questions {
 			text-align: right;
 			display: inline-block;
-			margin-right: 29px;
+			margin-right: 24px;
 		}
 		#exam {
 			position: relative;
