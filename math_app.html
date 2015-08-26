@@ -153,15 +153,6 @@
 			}
 		});	
 		
-		$('.answers').focus(function(e) {
-			alert('nika boang');
-			$(this).parent().addClass('active');
-		});
-		
-		$('input.answers').blur(function(e) {
-			$(this).parent().removeClass('active');
-		});
-		
 		$('#app_start').click(function(e) {
 			if($(this).text() == 'Start') {
 				var time_left = parseInt($('input[name="time_limit"]:checked').val());
@@ -176,6 +167,13 @@
 						}
 				}
 				$('#exam').html(test);
+				$('.answers').focus(function() {
+					$(this).parent().addClass('active');
+				});
+				
+				$('.answers').blur(function(e) {
+					$(this).parent().removeClass('active');
+				});
 				$('#total-score').html('&nbsp;');
 				$(this).text('Submit');
 				$('#time-left').html(time_left);
