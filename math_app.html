@@ -51,6 +51,10 @@
 			margin-bottom: 5px;
 			font-size: 38px;
 		}
+		.active {
+			background-color: #00CC33;
+			border: 1px solid #006600;
+		}
 	</style>
 </head>
 <body>
@@ -148,6 +152,14 @@
 				$('#exam').html('');
 			}
 		});	
+		
+		$('.answers').focus(function(e) {
+			$(this).parent().addClass('active');
+		});
+		
+		$('.answers').blur(function(e) {
+			$(this).parent().removeClass('active');
+		});
 		
 		$('#app_start').click(function(e) {
 			if($(this).text() == 'Start') {
